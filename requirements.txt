@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+gradio
+pandas
+numpy
+scikit-learn
+matplotlib
+plotly
+joblib
+python-multipart
+requests

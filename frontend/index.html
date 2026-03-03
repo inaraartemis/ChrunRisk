@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChurnPredict | Customer Retention Insights</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div id="landing-page">
+        <div class="landing-content">
+            <div class="hero-glow"></div>
+            <span class="hero-badge">Next-Gen Customer Intelligence</span>
+            <h1>Predict. Prevent.<br><span class="highlight">Prosper.</span></h1>
+            <p>Deploy advanced neural networks to safeguard your revenue. Identify risk at the source and transform
+                churn into loyalty.</p>
+            <div class="hero-actions">
+                <button class="btn-get-started" id="start-discovery">Enter Intelligence Hub</button>
+                <a href="#gradio-view" class="btn-secondary-outline" id="skip-to-gradio">Advanced Gradio</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="dashboard-content">
+        <nav>
+            <div class="nav-container">
+                <a href="#" class="logo">
+                    <span class="logo-icon"><i data-lucide="cpu"></i></span>
+                    <h1>Churn<span>Predict</span></h1>
+                </a>
+                <div class="nav-links">
+                    <a href="#hub" class="active">Hub</a>
+                    <a href="#predictor">Predictor</a>
+                    <a href="#batch">Batch</a>
+                    <a href="#insights">Insights</a>
+                </div>
+                <a href="#gradio-view" class="gradio-toggle">
+                    <span class="leaf-icon"><i data-lucide="flask-conical"></i></span> Advanced Mode
+                </a>
+            </div>
+        </nav>
+
+        <main>
+            <!-- Feature Hub / Dashboard Home -->
+            <section id="hub" class="fade-in">
+                <div class="section-header">
+                    <h2>Intelligence Hub</h2>
+                    <p>Select a specialized module to begin your retention analysis.</p>
+                </div>
+                <div class="feature-grid">
+                    <div class="feature-card" data-target="predictor">
+                        <div class="feature-icon"><i data-lucide="search"></i></div>
+                        <h3>Pulse Predictor</h3>
+                        <p>Real-time churn risk analysis for individual customer profiles.</p>
+                        <span class="feature-link">Launch Module →</span>
+                    </div>
+                    <div class="feature-card" data-target="batch">
+                        <div class="feature-icon"><i data-lucide="layers"></i></div>
+                        <h3>Batch Analyzer</h3>
+                        <p>Process enterprise-scale CSV datasets for portfolio risk detection.</p>
+                        <span class="feature-link">Launch Module →</span>
+                    </div>
+                    <div class="feature-card" data-target="insights">
+                        <div class="feature-icon"><i data-lucide="bar-chart-3"></i></div>
+                        <h3>Growth Insights</h3>
+                        <p>Deep dive into model drivers and behavioral churn triggers.</p>
+                        <span class="feature-link">Launch Module →</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Predictor Section -->
+            <section id="predictor" class="fade-in hidden">
+                <div class="section-header">
+                    <button class="btn-back">← Back to Hub</button>
+                    <h2>Pulse Predictor</h2>
+                </div>
+                <div class="how-to-steps">
+                    <div class="step"><span class="step-num">1</span>
+                        <div><strong>Fill in demographics</strong>
+                            <p>Select the customer's gender, senior citizen status, partner, and dependents info.</p>
+                        </div>
+                    </div>
+                    <div class="step"><span class="step-num">2</span>
+                        <div><strong>Enter service details</strong>
+                            <p>Set tenure, internet service type, contract, payment method, and billing amounts.</p>
+                        </div>
+                    </div>
+                    <div class="step"><span class="step-num">3</span>
+                        <div><strong>Click Predict</strong>
+                            <p>Hit "Calculate Success Probability" to get a real-time churn risk gauge with a Low /
+                                Medium / High result.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <form id="prediction-form">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>Demographics</label>
+                                <div class="radio-group">
+                                    <label><input type="radio" name="gender" value="Male" checked> Male</label>
+                                    <label><input type="radio" name="gender" value="Female"> Female</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Senior Citizen</label>
+                                <select name="SeniorCitizen">
+                                    <option value="0">No</option>
+                                    <option value="1">Yes</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Relationship Status</label>
+                                <select name="Partner">
+                                    <option value="No">Single</option>
+                                    <option value="Yes">Partnered</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Dependents</label>
+                                <select name="Dependents">
+                                    <option value="No">No Dependents</option>
+                                    <option value="Yes">Has Dependents</option>
+                                </select>
+                            </div>
+                            <div class="divider"></div>
+                            <div class="form-group">
+                                <label>Tenure (Months)</label>
+                                <input type="number" name="tenure" value="12" min="0" max="100">
+                            </div>
+                            <div class="form-group">
+                                <label>Internet Service</label>
+                                <select name="InternetService">
+                                    <option value="Fiber optic">Fiber Optic (Ultra)</option>
+                                    <option value="DSL">DSL (Standard)</option>
+                                    <option value="No">No Service</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Contract Type</label>
+                                <select name="Contract">
+                                    <option value="Month-to-month">Month-to-Month</option>
+                                    <option value="One year">One Year</option>
+                                    <option value="Two year">Two Year</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Payment Method</label>
+                                <select name="PaymentMethod">
+                                    <option value="Electronic check">Electronic Check</option>
+                                    <option value="Mailed check">Mailed Check</option>
+                                    <option value="Bank transfer (automatic)">Bank Transfer</option>
+                                    <option value="Credit card (automatic)">Credit Card</option>
+                                </select>
+                            </div>
+                            <div class="divider"></div>
+                            <div class="form-group">
+                                <label>Monthly Charges ($)</label>
+                                <input type="number" name="MonthlyCharges" value="70.0" step="0.01">
+                            </div>
+                            <div class="form-group">
+                                <label>Total Charges ($)</label>
+                                <input type="number" name="TotalCharges" value="840.0" step="0.01">
+                            </div>
+
+                            <input type="hidden" name="PhoneService" value="Yes">
+                            <input type="hidden" name="MultipleLines" value="No">
+                            <input type="hidden" name="OnlineSecurity" value="No">
+                            <input type="hidden" name="OnlineBackup" value="No">
+                            <input type="hidden" name="DeviceProtection" value="No">
+                            <input type="hidden" name="TechSupport" value="No">
+                            <input type="hidden" name="StreamingTV" value="No">
+                            <input type="hidden" name="StreamingMovies" value="No">
+                            <input type="hidden" name="PaperlessBilling" value="Yes">
+                        </div>
+                        <button type="submit" class="btn-primary">Calculate Success Probability</button>
+                    </form>
+
+                    <div id="result-container" class="result-card hidden">
+                        <div class="gauge-container">
+                            <canvas id="riskGauge"></canvas>
+                            <div id="risk-score">0%</div>
+                        </div>
+                        <div class="result-info">
+                            <p>Analysis Result</p>
+                            <h3 id="prediction-label">Low Churn Risk</h3>
+                            <p id="risk-category">Confidence Level: High</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Batch Section -->
+            <section id="batch" class="fade-in hidden">
+                <div class="section-header">
+                    <button class="btn-back">← Back to Hub</button>
+                    <h2>Volume Analysis</h2>
+                </div>
+                <div class="how-to-steps">
+                    <div class="step"><span class="step-num">1</span>
+                        <div><strong>Prepare your CSV file</strong>
+                            <p>Export customer data from your CRM. Make sure columns match the training feature names
+                                (e.g. tenure, MonthlyCharges, Contract).</p>
+                        </div>
+                    </div>
+                    <div class="step"><span class="step-num">2</span>
+                        <div><strong>Upload the file</strong>
+                            <p>Drag and drop your CSV onto the upload area, or click to browse files.</p>
+                        </div>
+                    </div>
+                    <div class="step"><span class="step-num">3</span>
+                        <div><strong>Review the results</strong>
+                            <p>A pie chart shows the breakdown of Low / Medium / High risk customers across your entire
+                                dataset.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="upload-area" id="drop-zone">
+                        <div class="upload-icon"><i data-lucide="upload-cloud"></i></div>
+                        <p>Drop CSV files here or <span>click to upload</span></p>
+                        <input type="file" id="csv-upload" accept=".csv" hidden>
+                    </div>
+                    <div id="batch-results" class="batch-results-container hidden">
+                        <canvas id="batchChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Insights Section -->
+            <section id="insights" class="fade-in hidden">
+                <div class="section-header">
+                    <button class="btn-back">← Back to Hub</button>
+                    <h2>Churn Drivers &amp; Insights</h2>
+                </div>
+                <div class="how-to-steps">
+                    <div class="step"><span class="step-num">1</span>
+                        <div><strong>Read the chart</strong>
+                            <p>The horizontal bar chart ranks the top 10 features by their contribution to the model's
+                                predictions. Longer bar = stronger driver.</p>
+                        </div>
+                    </div>
+                    <div class="step"><span class="step-num">2</span>
+                        <div><strong>Understand the drivers</strong>
+                            <p>Focus on the top 3 features — they explain the majority of churn decisions. Use the
+                                written insights below for a plain-English breakdown.</p>
+                        </div>
+                    </div>
+                    <div class="step"><span class="step-num">3</span>
+                        <div><strong>Take action</strong>
+                            <p>Use these insights to design targeted retention campaigns — e.g. offer discounts to
+                                month-to-month customers with high monthly charges.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card insights-card">
+                    <canvas id="importanceChart"></canvas>
+                </div>
+                <div class="insights-written">
+                    <h3>What the Model Tells Us</h3>
+                    <p class="insights-subtitle">Key patterns discovered from 7,043 telecom customers, explained in
+                        plain English.</p>
+                    <div class="flashcard-grid">
+                        <div class="flashcard">
+                            <div class="flashcard-label">Driver #1</div>
+                            <h4>Contract Type</h4>
+                            <p>Customers on <strong>Month-to-Month</strong> contracts churn at nearly 3× the rate of
+                                annual subscribers. Without a lock-in, every billing cycle is a churn opportunity.</p>
+                            <div class="flashcard-action">Offer annual upgrade incentives to at-risk customers.</div>
+                        </div>
+                        <div class="flashcard">
+                            <div class="flashcard-label">Driver #2</div>
+                            <h4>Monthly Charges</h4>
+                            <p>High-cost plans — particularly <strong>Fiber Optic</strong> subscribers — show
+                                significantly elevated churn. Price sensitivity is one of the strongest behavioral
+                                signals.</p>
+                            <div class="flashcard-action">Target high-spend customers with personalized bundle
+                                discounts.</div>
+                        </div>
+                        <div class="flashcard">
+                            <div class="flashcard-label">Driver #3</div>
+                            <h4>Customer Tenure</h4>
+                            <p>The first <strong>12 months</strong> are the most vulnerable window. Short-tenure
+                                customers have not yet formed a loyalty habit and are easiest to lose.</p>
+                            <div class="flashcard-action">Launch a structured onboarding program for new customers.
+                            </div>
+                        </div>
+                        <div class="flashcard">
+                            <div class="flashcard-label">Driver #4</div>
+                            <h4>Add-On Services</h4>
+                            <p>Subscribers without <strong>Online Security</strong>, <strong>Tech Support</strong>, or
+                                <strong>Device Protection</strong> churn more. Add-ons create stickiness and perceived
+                                value.</p>
+                            <div class="flashcard-action">Cross-sell add-ons to customers with bare-bones plans.</div>
+                        </div>
+                        <div class="flashcard">
+                            <div class="flashcard-label">Driver #5</div>
+                            <h4>Payment Method</h4>
+                            <p>Customers paying by <strong>Electronic Check</strong> show the highest churn rates —
+                                often indicative of a less committed, comparison-shopping mindset.</p>
+                            <div class="flashcard-action">Promote auto-pay enrollment with a loyalty reward.</div>
+                        </div>
+                        <div class="flashcard">
+                            <div class="flashcard-label">Driver #6</div>
+                            <h4>Internet Service Type</h4>
+                            <p><strong>Fiber Optic</strong> users churn more than DSL users despite paying a premium —
+                                signalling unmet quality expectations relative to cost.</p>
+                            <div class="flashcard-action">Conduct satisfaction surveys for fiber subscribers
+                                proactively.</div>
+                        </div>
+                    </div>
+
+                    <div class="dataset-info">
+                        <h3>About the Dataset</h3>
+                        <p class="insights-subtitle">This model was trained on the <strong>IBM Telco Customer
+                                Churn</strong> dataset, a widely used benchmark in the churn prediction domain.</p>
+                        <div class="dataset-grid">
+                            <div class="dataset-stat">
+                                <span class="ds-value">7,043</span>
+                                <span class="ds-label">Customer Records</span>
+                            </div>
+                            <div class="dataset-stat">
+                                <span class="ds-value">19</span>
+                                <span class="ds-label">Input Features</span>
+                            </div>
+                            <div class="dataset-stat">
+                                <span class="ds-value">26.5%</span>
+                                <span class="ds-label">Churn Rate</span>
+                            </div>
+                            <div class="dataset-stat">
+                                <span class="ds-value">84.2%</span>
+                                <span class="ds-label">Model ROC-AUC</span>
+                            </div>
+                        </div>
+                        <div class="dataset-details">
+                            <div class="dd-item"><span class="dd-cap">Source</span><span>IBM Sample Data — Telco
+                                    Customer Churn (publicly available via IBM Analytics)</span></div>
+                            <div class="dd-item"><span class="dd-cap">Features Include</span><span>Demographics (gender,
+                                    senior citizen, partner, dependents), service usage (phone, internet, streaming,
+                                    security add-ons), contract details (type, billing method, tenure), and charges
+                                    (monthly &amp; total).</span></div>
+                            <div class="dd-item"><span class="dd-cap">Target Variable</span><span>Binary — whether the
+                                    customer left the company within the last month (Churn: Yes / No).</span></div>
+                            <div class="dd-item"><span class="dd-cap">Model Used</span><span>Random Forest Classifier
+                                    wrapped in a Scikit-Learn pipeline with One-Hot Encoding and Standard Scaling.
+                                    Baseline Logistic Regression also evaluated for comparison.</span></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gradio Section -->
+            <section id="gradio-view" class="fade-in hidden">
+                <div class="section-header">
+                    <button class="btn-back">← Back to Hub</button>
+                    <h2>Gradio Advanced Lab</h2>
+                </div>
+                <div class="card gradio-card">
+                    <iframe src="/gradio/" frameborder="0" class="gradio-iframe"></iframe>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 ChurnPredict Pro | Intelligence-Driven Retention</p>
+            <p class="footer-credit">Made by <strong>Arpita Mahapatra</strong></p>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
