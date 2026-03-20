@@ -1,4 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Dynamic Mouse Glow Tracking
+    document.addEventListener('mousemove', (e) => {
+        document.body.style.setProperty('--mouse-x', `${e.clientX}px`);
+        document.body.style.setProperty('--mouse-y', `${e.clientY}px`);
+    });
+
     // Initialize Lucide Icons
     lucide.createIcons();
     const form = document.getElementById('prediction-form');
