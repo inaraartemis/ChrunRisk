@@ -1,5 +1,7 @@
 # 📊 Customer Churn Prediction Platform
 
+🚀 **Live Demo:** [https://churn-prediction-api-5kwg.onrender.com/](https://churn-prediction-api-5kwg.onrender.com/)
+
 ## Problem Statement
 Customer churn is a critical metric for telecommunications companies. Predicting which customers are likely to leave allows businesses to take proactive measures (e.g., discounts, personalized offers) to retain them. This platform provides a machine learning-based solution to predict churn risk levels and understand the key drivers behind customer decisions.
 
