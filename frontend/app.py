@@ -8,7 +8,8 @@ import plotly.express as px
 import pickle
 import os
 
-API_URL = "http://localhost:8015"
+PORT = os.environ.get("PORT", 8015)
+API_URL = f"http://127.0.0.1:{PORT}"
 
 # Load feature importance from model
 MODEL_PATH = "model/churn_model.pkl"
