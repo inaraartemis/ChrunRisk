@@ -40,11 +40,8 @@ python backend/main.py
 ### 4. Launch the Frontend UI
 ```bash
 python frontend/app.py
-``
-
-https://github.com/user-attachments/assets/3db1f62d-7cec-430e-a116-a2bff43ffa73
-
-`
+```
+<img width="1918" height="922" alt="image" src="https://github.com/user-attachments/assets/b29d99e2-910f-4345-bde5-b3856792538b" />
 
 ## Folder Structure
 - `data/`: Dataset storage.
